@@ -1,4 +1,5 @@
-import { Link } from "react-router-dom";
+import { Link, NavLink } from "react-router-dom";
+import { navigation } from "./page-navlinks";
 
 export function HorizontalNavbar({ showSideNavBar, handleSideNavbar }) {
   return (
@@ -7,7 +8,7 @@ export function HorizontalNavbar({ showSideNavBar, handleSideNavbar }) {
         showSideNavBar={showSideNavBar}
         handleSideNavbar={handleSideNavbar}
       />
-      <nav className="hidden bg-blue-600 px-5 sm:block">
+      <nav className="sticky top-0 hidden bg-blue-600 px-5 sm:block">
         <ul className="flex items-start">
           {navigation.map((nav) => {
             return (
@@ -15,23 +16,23 @@ export function HorizontalNavbar({ showSideNavBar, handleSideNavbar }) {
                 className="group relative"
                 key={nav.text.toLowerCase().replace(" ", "_")}
               >
-                <Link
+                <NavLink
                   to={nav.href}
                   className="text-md peer block p-2 text-slate-100 transition-all hover:text-white hover:underline hover:underline-offset-8"
                 >
                   {nav.text}
-                </Link>
+                </NavLink>
                 {nav.childrens && (
-                  <ul className="absolute left-0 hidden min-w-52 bg-blue-700 group-hover:block">
+                  <ul className="absolute left-0 z-10 hidden min-w-52 bg-blue-700 group-hover:block">
                     {nav.childrens.map((nav1) => {
                       return (
                         <li key={nav1.text.toLowerCase().replace(" ", "_")}>
-                          <Link
-                            to={nav1.href}
-                            className="text-md block p-2 px-5 text-slate-100 transition-all hover:text-white hover:underline hover:underline-offset-8"
+                          <NavLink
+                            to={nav.href + nav1.href}
+                            className={`text-md block p-2 px-5 text-slate-100 transition-all hover:text-white hover:underline hover:decoration-blue-300 hover:underline-offset-8`}
                           >
                             {nav1.text}
-                          </Link>
+                          </NavLink>
                         </li>
                       );
                     })}
@@ -135,7 +136,7 @@ function HorizontalNavbarMobile({ showSideNavBar, handleSideNavbar }) {
                     return (
                       <li key={nav1.text.toLowerCase().replace(" ", "_")}>
                         <Link
-                          to={nav1.href}
+                          to={nav.href + nav1.href}
                           className="text-md block p-2 px-5 text-slate-100 transition-all hover:text-white hover:underline hover:underline-offset-8"
                         >
                           {nav1.text}
@@ -152,50 +153,3 @@ function HorizontalNavbarMobile({ showSideNavBar, handleSideNavbar }) {
     </nav>
   );
 }
-
-const navigation = [
-  {
-    href: "/components/form/",
-    text: "Form components",
-    childrens: [
-      {
-        href: "/components/form/input",
-        text: "Input element",
-      },
-      {
-        href: "/components/form/password",
-        text: "Password element",
-      },
-      {
-        href: "#",
-        text: "Checkbox element",
-      },
-      {
-        href: "#",
-        text: "Radio element",
-      },
-    ],
-  },
-  {
-    href: "#",
-    text: "List components",
-    childrens: [
-      {
-        href: "#",
-        text: "Unordered List",
-      },
-      {
-        href: "#",
-        text: "Ordered List",
-      },
-      {
-        href: "#",
-        text: "Description List",
-      },
-      {
-        href: "#",
-        text: "Other List components",
-      },
-    ],
-  },
-];
