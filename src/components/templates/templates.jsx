@@ -1,6 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 import { UserProfileTemplates } from "./user-profile-templates";
 import PageSideNavbar from "../navbar/page-sidenavbar";
+import { RegistrationForm } from "./registration-form";
 
 export default function Templates() {
   return (
@@ -26,6 +27,7 @@ function TemplatesRoutes() {
   return (
     <Routes>
       <Route path="user-profile-templates" element={<UserProfileTemplates />} />
+      <Route path="registration" element={<RegistrationForm />} />
     </Routes>
   );
 }

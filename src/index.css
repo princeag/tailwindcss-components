@@ -6,5 +6,5 @@
   @apply underline underline-offset-8;
 }
 .active + ul .active {
-  @apply translate-x-2 transform;
+  @apply decoration-black;
 }

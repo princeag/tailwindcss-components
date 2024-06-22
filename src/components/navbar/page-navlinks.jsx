@@ -27,6 +27,10 @@ export const navigation = [
         href: "radio",
         text: "Radio element",
       },
+      {
+        href: "buttons",
+        text: "Buttons",
+      },
     ],
   },
   {
@@ -78,6 +82,10 @@ export const navigation = [
       {
         href: "user-profile-templates",
         text: "User profile templates",
+      },
+      {
+        href: "registration",
+        text: "Registration form",
       },
     ],
   },

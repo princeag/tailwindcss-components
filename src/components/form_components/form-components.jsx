@@ -4,6 +4,7 @@ import { PasswordInput } from "./password-input";
 import { FileInput } from "./file-input";
 import PageSideNavbar from "../navbar/page-sidenavbar";
 import { CheckboxInput } from "./checkbox-input";
+import Buttons from "./buttons";
 
 export default function FormComponents() {
   return (
@@ -33,6 +34,7 @@ function FormComponentRoutes() {
       <Route path="input-group" element={<InputGroup />} />
       <Route path="file-input" element={<FileInput />} />
       <Route path="checkbox" element={<CheckboxInput />} />
+      <Route path="buttons" element={<Buttons />} />
     </Routes>
   );
 }
